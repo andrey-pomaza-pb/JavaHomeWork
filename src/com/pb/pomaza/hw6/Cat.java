@@ -1,13 +1,12 @@
 package com.pb.pomaza.hw6;
 
-public class Cat extends Animal {
-    private String color;
 
-    public Cat() {
-    }
+
+public class Cat extends Animal {
+    public String color;
 
     public Cat(String food, String location) {
-        super (food, location);
+        super();
     }
 
     public String getColor() {

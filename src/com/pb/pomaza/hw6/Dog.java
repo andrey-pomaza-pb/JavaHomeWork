@@ -1,13 +1,13 @@
 package com.pb.pomaza.hw6;
 
 public class Dog extends Animal {
-    private String name;
+    public String name;
 
     public Dog() {
     }
 
     public Dog(String food, String location) {
-        super(food, location);
+
     }
 
     public String getName() {

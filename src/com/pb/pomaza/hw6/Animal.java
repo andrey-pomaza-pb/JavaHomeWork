@@ -1,41 +1,26 @@
 package com.pb.pomaza.hw6;
 
-public class Animal {
+public abstract class Animal {
+    private String food;
+    private String location;
 
-    private string food;
-    private string location;
-
-    public Animal(String food, String location) {
+    public String getFood() {
+        return food;
     }
 
-    public abstract class Animal {
+    public void setFood (String food) {
+        this.food = food;
+    }
 
+    public String getLocation() {
+        return location;
+    }
 
-        public Animal() {
-        }
+    public void setLocation(String location) {
+        this.location = location;
+    }
 
-        public Animal(String food, String location) {
-            this.food = food;
-            this.location = location;
-        }
-
-        public String getFood() {
-            return food;
-        }
-
-        public void setFood(String food) {
-            this.food = food;
-        }
-
-        public String getLocation() {
-            return location;
-        }
-
-        public void setLocation(String location) {
-            this.location = location;
-        }
-
-        public abstract void eat();
+    public abstract void eat ();
 
         public abstract String makeNoise();
 
@@ -61,4 +46,3 @@ public class Animal {
             return result;
         }
     }
-}
