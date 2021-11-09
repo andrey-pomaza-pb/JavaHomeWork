@@ -3,10 +3,13 @@ package com.pb.pomaza.hw6;
 
 
 public class Cat extends Animal {
-    public String color;
+    private String color;
+
+    public Cat() {
+    }
 
     public Cat(String food, String location) {
-        super();
+
     }
 
     public String getColor() {
@@ -19,30 +22,12 @@ public class Cat extends Animal {
 
     @Override
     public void eat() {
-        System.out.println("Кошка кушает.");
+        System.out.println("Кошка ест.");
     }
 
     @Override
     public String makeNoise() {
-        return "Мяу!!";
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Cat)) return false;
-        if (!super.equals(o)) return false;
-
-        Cat cat = (Cat) o;
-
-        return color != null ? color.equals(cat.color) : cat.color == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + (color != null ? color.hashCode() : 0);
-        return result;
+        return "Мя-я-я-я-я-я-у!!!!";
     }
 
     @Override
