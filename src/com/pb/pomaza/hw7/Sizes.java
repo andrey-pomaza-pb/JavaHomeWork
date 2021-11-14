@@ -1,16 +1,16 @@
 package com.pb.pomaza.hw7;
 
     public enum Sizes {
-        XXS(36) {
+        XXS(32) {
             @Override
             public String getDescription() {
                 return "детский размер";
             }
         },
-        XS(38),
-        S(40),
-        M(42),
-        L(44);
+        XS(34),
+        S(36),
+        M(38),
+        L(40);
 
         Sizes(int euroSize) {
             EuroSize = euroSize;
