@@ -1,15 +1,14 @@
 package com.pb.pomaza.hw6;
 
-
+import java.util.Objects;
 
 public class Cat extends Animal {
+
     private String color;
 
-    public Cat() {
-    }
-
-    public Cat(String food, String location) {
-
+    public Cat(String name, String color) {
+        super(name);
+        this.color = color;
     }
 
     public String getColor() {
@@ -21,20 +20,36 @@ public class Cat extends Animal {
     }
 
     @Override
-    public void eat() {
-        System.out.println("Кошка ест.");
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Cat cat = (Cat) o;
+        return Objects.equals(color, cat.color);
     }
 
     @Override
-    public String makeNoise() {
-        return "Мя-я-я-я-я-я-у!!!!";
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), color);
     }
 
     @Override
     public String toString() {
         return "Cat{" +
-                "food='" + getFood() + '\'' +
-                ", location='" + getLocation() + '\'' +
+                "food='" + food + '\'' +
+                ", location='" + location + '\'' +
+                ", name='" + name + '\'' +
+                ", color='" + color + '\'' +
                 '}';
+    }
+
+    @Override
+    public void makeNoise() {
+        System.out.println("мяу мяу!!! ");
+    }
+
+    @Override
+    public void eat() {
+        System.out.println(name+ " нямкает");
     }
 }

@@ -3,35 +3,27 @@ package com.pb.pomaza.hw5;
 public class Book {
     private String name;
     private String author;
+    private int year;
 
-    public Book(String name, String author) {
+    public Book(String name, String author, int year) {
         this.name = name;
         this.author = author;
-    }
-
-    public Book() {
+        this.year = year;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public int getYear() {
+        return year;
     }
-
-    public String getInfo() {
-        return "{" +
-                "name='" + name + '\'' +
-                ", author='" + author + '\'' +
-                '}';
+    public String getInfo () {
+        return  name + "( " + author + " " + year + ") ";
     }
 }
+

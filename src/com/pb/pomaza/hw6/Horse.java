@@ -1,70 +1,45 @@
 package com.pb.pomaza.hw6;
 
-import java.io.Serializable;
+import java.util.Objects;
 
-public class Horse extends Animal implements Serializable {
+public class Horse extends Animal {
+    private int speed;
 
-
-    public double weight;
-
-    public Horse() {
+    public Horse(String name, int speed) {
+        super(name);
+        this.speed = speed;
     }
 
-    public Horse(String food, String location) {
-
-    }
-
-    public Horse(String food, String location, double weight) {
-        this(food, location);
-        this.weight = weight;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
+    @Override
+    public void makeNoise() {
+        System.out.println("Иго-го");
     }
 
     @Override
     public void eat() {
-        System.out.println("Лошадь ест.");
+        System.out.println(" Конь ест " + food);
     }
 
-    @Override
-    public String makeNoise() {
-        return "Иго-го-го-го!!!";
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Horse)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-
         Horse horse = (Horse) o;
-
-        return Double.compare(horse.weight, weight) == 0;
+        return speed == horse.speed;
     }
 
     @Override
     public int hashCode() {
-        int result = super.hashCode();
-        long temp;
-        temp = Double.doubleToLongBits(weight);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Horse{" +
-                "food: '" + getFood() + '\'' +
-                ", location: '" + getLocation() + '\'' +
-                ", weight = " + weight +
-                '}';
+        return Objects.hash(super.hashCode(), speed);
     }
 }
-
 

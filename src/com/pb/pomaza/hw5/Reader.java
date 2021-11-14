@@ -1,111 +1,99 @@
 package com.pb.pomaza.hw5;
 
+import java.time.LocalDate;
+
 public class Reader {
-   private String Surname;
-   private int  number ;
-   private String Facultative;
-   private String date_of_birth;
-   private String phone_number;
-    public Reader(String Surname, int ticket_number, String Facultative, String date_of_birth, String phone_number) {
-        this.Surname = Surname;
-        this.number = number;
-        this.Facultative = Facultative;
+    private String surname;
+    private int libraryCard;
+    private String faculty;
+    private LocalDate date_of_birth;
+    private String phone_number;
+
+    public Reader(String surname, int libraryCard, String faculty, LocalDate date_of_birth, String phone_number) {
+        this.surname = surname;
+        this.libraryCard = libraryCard;
+        this.faculty = faculty;
         this.date_of_birth = date_of_birth;
         this.phone_number = phone_number;
     }
 
-    public Reader() {
-    }
-
     public String getSurname() {
-        return Surname;
+        return surname;
     }
 
-    public void setSurname(String Surname) {
-        this.Surname = Surname;
+    public int getLibraryCard() {
+        return libraryCard;
     }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
-    }
-
 
     public String getFaculty() {
-        return Facultative;
+        return faculty;
     }
 
-    public void setFaculty(String Facultative) {
-        this.Facultative = Facultative;
-    }
-
-    public String getDate_of_birth() {
+    public LocalDate getDate_of_birth() {
         return date_of_birth;
-    }
-
-    public void setDate_of_birth(String dob) {
-        this.date_of_birth = date_of_birth;
     }
 
     public String getPhone_number() {
         return phone_number;
     }
 
-    public void setPhone_number(String phone) {
+    public void setLibraryCard(int libraryCard) {
+        this.libraryCard = libraryCard;
+    }
+
+    public void setFaculty(String faculty) {
+        this.faculty = faculty;
+    }
+
+    public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
     }
 
-    public void takeBook(int number) {
-        System.out.println(this.Surname + " взял " + number + " книги.");
+
+    public void takeBook(int bookCount) {
+        System.out.println(surname + " взял " + bookCount + " книг(и) " );
     }
 
-    public void takeBook(String... books) {
-        System.out.println(this.Surname + " взял следующие книги:");
-        for (String book : books) {
-            System.out.println(book);
+    public void takeBook(String... bookNames) {
+        System.out.println(surname + " взял книги: ");
+        for (String name : bookNames ) {
+            System.out.print(name + " ");
         }
-        System.out.println();
+}
+   public void takeBook(Book... books) {
+        System.out.println(surname + " взял книги: ");
+        for (Book book: books ) {
+            System.out.println(book.getName() + " (" + book.getAuthor() + " " +book.getYear() + ") ");      }
     }
 
-    public void takeBook(Book... books) {
-        System.out.println(this.Surname + " взял следующие книги:");
-        for (Book book : books) {
-            System.out.println(book.getName() + ", автор - " + book.getAuthor());
+
+    public void returnBook(int bookCount) {
+        System.out.println(surname + " вернул " + bookCount + " книг(и) " );
+    }
+
+    public void returnBook(String... bookNames) {
+        System.out.println(surname + " вернул книги: ");
+        for (String name : bookNames ) {
+            System.out.print(name + " ");
         }
-        System.out.println();
     }
-
-    public void returnBook(int number) {
-        System.out.println(this.Surname + " вернул " + number + " книги.");
-    }
-
-    public void returnBook(String... books) {
-        System.out.println(this.Surname + " вернул следующие книги:");
-        for (String book : books) {
-            System.out.println(book);
-        }
-        System.out.println();
-    }
-
     public void returnBook(Book... books) {
-        System.out.println(this.Surname + " вернул следующие книги:");
-        for (Book book : books) {
-            System.out.println(book.getName() + ", автор - " + book.getAuthor());
+        System.out.println(surname + " вернул книги: ");
+        for (Book book: books ) {
+            System.out.println(book.getInfo());
         }
-        System.out.println();
     }
 
-    public String getInfo() {
-        return "{" +
-                "fio='" + Surname + '\'' +
-                ", number=" + number +
-                ", Facultative='" + Facultative + '\'' +
-                ", date_of_birth='" + date_of_birth + '\'' +
+    @Override
+    public String toString() {
+        return "Reader{" +
+                "surname='" + surname + '\'' +
+                ", libraryCard=" + libraryCard +
+                ", faculty='" + faculty + '\'' +
+                ", date_of_birth=" + date_of_birth +
                 ", phone_number='" + phone_number + '\'' +
                 '}';
     }
 }
+
 

@@ -1,44 +1,48 @@
 package com.pb.pomaza.hw4;
 
+
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Anagram {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String s1, s2;
-        s1 = sc.nextLine();
-        s2 = sc.nextLine();
+        Scanner in = new Scanner(System.in);
 
-        char[] chArr1 = s1.toUpperCase().toCharArray();
-        char[] chArr2 = s2.toUpperCase().toCharArray();
+        System.out.print("Enter first string: ");
+        String first = in.nextLine().toUpperCase();
 
-        for (int i = chArr1.length - 1; i > 0; i--) {
-            for (int j = 0; j < i; j++) {
-                if (chArr1[j] > chArr1[j + 1]) {
-                    char tmp = chArr1[j];
-                    chArr1[j] = chArr1[j + 1];
-                    chArr1[j + 1] = tmp;
-                }
-            }
+
+        System.out.print("Enter second string: ");
+        String second = in.nextLine().toUpperCase();
+
+        String result = isAnagram(first, second);
+        System.out.println(result);
+    }
+
+    private static String isAnagram(String first, String second) {
+        if (first == null || second == null || first.equals("") || second.equals("") || !first.matches("[A-Za-z,. ]+")
+                || !second.matches("[A-Za-z,. ]+")) {
+            return "No anagram.";
         }
-        for (int i = chArr2.length - 1; i > 0; i--) {
-            for (int j = 0; j < i; j++) {
-                if (chArr2[j] > chArr2[j + 1]) {
-                    char tmp = chArr2[j];
-                    chArr2[j] = chArr2[j + 1];
-                    chArr2[j + 1] = tmp;
-                }
-            }
+        String answer = "";
+
+        String st = first.replaceAll("[,. ]+", "");
+        String nd = second.replaceAll("[,. ]+", "");
+
+        if (st.equals("") || nd.equals("")) {
+            return "No anagram.";
         }
 
-        String valueOfchar1 = String.valueOf(chArr1);
-        String valueOfchar2 = String.valueOf(chArr2);
-        valueOfchar1 = valueOfchar1.replaceAll(" ", "");
-        valueOfchar2 = valueOfchar2.replaceAll(" ", "");
-        System.out.println(valueOfchar1);
-        System.out.println(valueOfchar2);
+        char[] arraySt = st.toCharArray();
+        char[] arrayNd = nd.toCharArray();
+        Arrays.sort(arraySt);
+        Arrays.sort(arrayNd);
 
-        System.out.println(valueOfchar1.equalsIgnoreCase(valueOfchar2));
+        if (Arrays.equals(arraySt, arrayNd)) {
+            answer = "Anagram.";
+        } else {
+            answer = "No anagram.";
+        }
+        return answer;
     }
 }
-
