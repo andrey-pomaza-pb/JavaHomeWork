@@ -4,7 +4,7 @@ public class WrongLoginException extends Exception {
     private String detail;
 
     public WrongLoginException() {
-        detail = "Incorrect login";
+        detail = "Неверный логин";
     }
 
     public WrongLoginException(String message) {
