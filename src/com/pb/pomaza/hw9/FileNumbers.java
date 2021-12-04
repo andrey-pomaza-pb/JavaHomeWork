@@ -78,7 +78,7 @@ public class FileNumbers {
 
     }
 
-      public static void main(String[] args) {
+    public static void main(String[] args) {
         System.out.println("Start script");
         Path path = Paths.get("C:\\Users\\User\\IdeaProjects\\JavaHomeWork\\src\\com\\pb\\pomaza\\hw9\\numbers.txt");
         Path pathS = Paths.get("C:\\Users\\User\\IdeaProjects\\JavaHomeWork\\src\\com\\pb\\pomaza\\hw9\\odd-numbers.txt");
@@ -86,6 +86,7 @@ public class FileNumbers {
         createOddNumbersFile(path, pathS);
     }
 }
+
 
 
 
