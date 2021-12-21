@@ -1,0 +1,19 @@
+[ {
+  "name" : "Andrey",
+  "dateBirthday" : 1638968483070,
+  "phone" : [7985654, 345678 ],
+  "address" : "Test",
+  "dateEdit" : 1638968483070
+}, {
+  "name" : "Alexandr",
+  "dateBirthday" : 1638968483070,
+  "phone" : [45656456 ],
+  "address" : "LUNA",
+  "dateEdit" : 1638968483070
+}, {
+  "name" : "Rofl",
+  "dateBirthday" : 1638968483071,
+  "phone" : [456456 ],
+  "address" : "Dnipro",
+  "dateEdit" : 1638968483071
+} ]
